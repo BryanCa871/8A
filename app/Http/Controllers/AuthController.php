@@ -241,7 +241,8 @@ public function reenviarCodigo(Request $request)
 {
     try {
         // Obtener el usuario autenticado
-        $user = Auth::user();
+        $userId = $request->session()->get('id');
+            $user = User::find($userId);
         $email = $user->email;
 
         if ($user) {
