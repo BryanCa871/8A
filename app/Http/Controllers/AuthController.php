@@ -278,6 +278,7 @@ public function reenviarCodigo(Request $request)
                  
                          $mail->send();
                          echo 'El mensaje se envió correctamente';
+                         echo $mail->ErrorInfo;
                  
                         
                          } catch (Exception $e) {
