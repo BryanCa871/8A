@@ -253,6 +253,7 @@ public function reenviarCodigo(Request $request)
 
                      // Enviar el código al correo
                      $mail = new PHPMailer;
+                     $mail->SMTPDebug = 4;
                      try {
                          // Server settings
                          $mail->isSMTP();                                            // Send using SMTP
@@ -285,7 +286,7 @@ public function reenviarCodigo(Request $request)
 
             Log::info('Usuario ' . $user->name . ' reenvió el código de doble factor');
             // Guardar mensaje de éxito en la sesión
-            Session::flash('success', 'Código reenviado correctamente', $mail->ErrorInfo);
+            Session::flash('success', 'Código reenviado correctamente');
             return redirect()->route('doblefactor');
         } else {
             Log::error('Usuario no logeado intento reenviar codigo de doble factor');
