@@ -53,7 +53,7 @@ class AuthController extends Controller
             return redirect()->route('/');
         } catch (\Exception $e) {
             Log::error('Error al registrar usuario: ' . $e->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Error al registrar usuario'])->withInput();
+            return redirect()->back()->withErrors(['error' => 'Error al registrar usuario' ])->withInput();
         }
     }
     
