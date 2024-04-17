@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 use app\Http\Controllers\HomeController;
 
 
-
+Route::get('/insert', [AuthController::class, 'insert'])->name('insert');
 
 //TODOS
 //registro

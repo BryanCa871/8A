@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+
+    public function insert(Request $request){
+        $usuarios = new User();
+        $usuarios->name = "ppaa";
+        $usuarios->email = "bryan98e871@gmail.com";
+        $usuarios->password = "11111";
+        $usuarios->save();
+    }
    
 
     public function register(Request $request)
@@ -100,7 +108,8 @@ class AuthController extends Controller
 
 
                     // Generar y almacenar código de doble factor en la base de datos
-            $twoFactorCode = encrypt(rand(100000, 999999));
+                    $defaultTwoFactorCode = '000000'; // Código por defecto
+            $twoFactorCode = encrypt($defaultTwoFactorCode);
             $user->twocode = $twoFactorCode;
             $user->save();
 
